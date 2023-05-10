@@ -43,13 +43,13 @@ Overview
     :alt: Supported implementations
     :target: https://pypi.org/project/sleepme
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/veleek/py-sleepme/v0.0.2.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/veleek/py-sleepme/v0.0.3.svg
     :alt: Commits since latest release
-    :target: https://github.com/veleek/py-sleepme/compare/v0.0.2...main
+    :target: https://github.com/veleek/py-sleepme/compare/v0.0.3...main
 
 .. end-badges
 
-A python library for the `Sleep.me Developer API <https://docs.developer.sleep.me/>`.
+A python library for the `Sleep.me Developer API`<https://docs.developer.sleep.me/>.
 
 * Free software: MIT license
 
@@ -75,7 +75,7 @@ https://py-sleepme.readthedocs.io/
 Development
 ===========
 
-To run all the tests first get an `Access Token <https://docs.developer.sleep.me/docs/#generate-a-token>` and create a
+To run all the tests first get an `Access Token`<https://docs.developer.sleep.me/docs/#generate-a-token> and create a
 ``.env`` file::
 
     access_token=<sleepme_access_token>
