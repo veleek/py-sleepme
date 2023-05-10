@@ -1,5 +1,7 @@
 name: build
 on: [push, pull_request]
+env:
+  access_token: ${{ secrets.access_token }}
 jobs:
   test:
     name: ${{ matrix.name }}
