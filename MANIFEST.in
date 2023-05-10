@@ -12,6 +12,8 @@ include .pre-commit-config.yaml
 include .readthedocs.yml
 include pytest.ini
 include tox.ini
+include .env
+include .vscode/settings.json
 
 include AUTHORS.rst
 include CHANGELOG.rst

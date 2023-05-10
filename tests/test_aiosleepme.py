@@ -1,11 +1,11 @@
 from pprint import pprint
 
-from sleepme.models.DeviceState import (
-    DeviceControl,
-    TemperatureUnit,
-    ThermalControlStatus,
-)
-from sleepme.services.aiosleepme import get_device_state, get_devices, update_device
+from sleepme.models.DeviceState import DeviceControl
+from sleepme.models.DeviceState import TemperatureUnit
+from sleepme.models.DeviceState import ThermalControlStatus
+from sleepme.services.aiosleepme import get_device_state
+from sleepme.services.aiosleepme import get_devices
+from sleepme.services.aiosleepme import update_device
 
 
 async def test_get_devices():
@@ -15,7 +15,8 @@ async def test_get_devices():
     device = devices[0]
     assert device.id is not None
     assert device.name is not None
-    assert device.attachments is not None and len(device.attachments) > 0
+    assert device.attachments is not None
+    assert len(device.attachments) > 0
     assert device.attachments[0] is not None
     pprint(device)
 

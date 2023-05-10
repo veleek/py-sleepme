@@ -1,7 +1,9 @@
 from sleepme.services import aiosleepme
 
-from .models import DeviceInfo, DeviceState
-from .models.DeviceState import DeviceControl, TemperatureUnit
+from .models import DeviceInfo
+from .models import DeviceState
+from .models.DeviceState import DeviceControl
+from .models.DeviceState import TemperatureUnit
 
 
 class SleepmeDevice:
