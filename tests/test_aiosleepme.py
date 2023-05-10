@@ -1,11 +1,11 @@
 from pprint import pprint
 
-from src.sleepme.models.DeviceState import (
+from sleepme.models.DeviceState import (
     DeviceControl,
     TemperatureUnit,
     ThermalControlStatus,
 )
-from src.sleepme.services.aiosleepme import get_device_state, get_devices, update_device
+from sleepme.services.aiosleepme import get_device_state, get_devices, update_device
 
 
 async def test_get_devices():
