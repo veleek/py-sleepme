@@ -49,7 +49,7 @@ Overview
 
 .. end-badges
 
-A python library for the `Sleep.me Developer API`<https://docs.developer.sleep.me/>.
+A python library for the `Sleep.me Developer API <https://docs.developer.sleep.me/>`_.
 
 * Free software: MIT license
 
@@ -75,7 +75,7 @@ https://py-sleepme.readthedocs.io/
 Development
 ===========
 
-To run all the tests first get an `Access Token`<https://docs.developer.sleep.me/docs/#generate-a-token> and create a
+To run all the tests first get an `Access Token <https://docs.developer.sleep.me/docs/#generate-a-token>`_ and create a
 ``.env`` file::
 
     access_token=<sleepme_access_token>
