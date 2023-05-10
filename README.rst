@@ -12,7 +12,6 @@ Overview
     * - tests
       - | |github-actions|
         | |codecov|
-        | |scrutinizer|
     * - package
       - | |version| |wheel| |supported-versions| |supported-implementations|
         | |commits-since|
@@ -47,12 +46,6 @@ Overview
 .. |commits-since| image:: https://img.shields.io/github/commits-since/veleek/py-sleepme/v0.0.1.svg
     :alt: Commits since latest release
     :target: https://github.com/veleek/py-sleepme/compare/v0.0.1...main
-
-
-.. |scrutinizer| image:: https://img.shields.io/scrutinizer/quality/g/veleek/py-sleepme/main.svg
-    :alt: Scrutinizer Status
-    :target: https://scrutinizer-ci.com/g/veleek/py-sleepme/
-
 
 .. end-badges
 
