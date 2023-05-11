@@ -3,7 +3,7 @@ from sleepme.api_config import APIConfig
 
 from sleepme.services import aiosleepme
 from sleepme.services import sleepme
-from sleepme.SleepmeDevice import SleepmeDevice
+from sleepme.device import SleepmeDevice
 
 
 class SleepmeDeviceManager:

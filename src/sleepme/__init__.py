@@ -1,7 +1,7 @@
 __version__ = "0.0.4"
 
-from . import SleepmeDevice
-from . import SleepmeDeviceManager
+from .device import SleepmeDevice
+from .device_manager import SleepmeDeviceManager
 
 __all__ = [
     "SleepmeDevice",
