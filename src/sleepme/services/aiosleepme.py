@@ -55,6 +55,6 @@ def get_client(api_config_override: Optional[APIConfig] = None) -> httpx.AsyncCl
         headers={
             "Content-Type": "application/json",
             "Accept": "application/json",
-            "Authorization": f"Bearer { api_config.get_access_token() }",
+            "Authorization": f"Bearer { api_config.access_token }",
         },
     )

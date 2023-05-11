@@ -1,8 +1,8 @@
 from pprint import pprint
 
-from sleepme.models.DeviceState import DeviceControl
-from sleepme.models.DeviceState import TemperatureUnit
-from sleepme.models.DeviceState import ThermalControlStatus
+from sleepme.models import DeviceControl
+from sleepme.models import TemperatureUnit
+from sleepme.models import ThermalControlStatus
 from sleepme.services.aiosleepme import get_device_state
 from sleepme.services.aiosleepme import get_devices
 from sleepme.services.aiosleepme import update_device

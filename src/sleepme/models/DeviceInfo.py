@@ -12,3 +12,21 @@ class DeviceInfo(BaseModel):
     id: str
     name: str
     attachments: List[str]
+
+
+class DeviceInfoList(BaseModel):
+    """
+    DeviceList model
+
+    """
+
+    __root__: List[DeviceInfo]
+
+    def __iter__(self):
+        return iter(self.__root__)
+
+    def __getitem__(self, item):
+        return self.__root__[item]
+
+    def __len__(self):
+        return len(self.__root__)

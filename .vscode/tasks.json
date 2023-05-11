@@ -1,0 +1,52 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "windows": {
+        "options": {
+            "shell": {
+                "args": [
+                    "-NoProfile"
+                ]
+            }
+        }
+    },
+    "presentation": {
+        "showReuseMessage": false,
+        "clear": true
+    },
+    "tasks": [
+        {
+            "label": "bump patch",
+            "type": "shell",
+            "command": "bumpversion patch",
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "python setup.py clean --all sdist bdist_wheel",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "publish",
+            "type": "shell",
+            "command": "twine upload --skip-existing -r testpypi dist/*",
+            "problemMatcher": []
+        },
+        {
+            "label": "patch and publish",
+            "type": "shell",
+            "dependsOn": [
+                "bump patch",
+                "build",
+                "publish"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        }
+    ]
+}

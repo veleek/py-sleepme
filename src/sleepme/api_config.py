@@ -1,5 +1,4 @@
 import os
-from typing import Optional
 from typing import Union
 
 from pydantic import BaseModel
@@ -9,18 +8,11 @@ class APIConfig(BaseModel):
     base_path: str = "https://api.developer.sleep.me/v1"
     verify: Union[bool, str] = False
     proxies: str | None = None
+    access_token: str = ""
 
-    def get_access_token(self) -> Optional[str]:
-        try:
-            return os.environ["access_token"]
-        except KeyError:
-            return None
-
-    def set_access_token(self, value: str):
-        raise Exception(
-            "This client was generated with an environment variable for the access token."
-            + "Please set the environment variable 'access_token' to the access token."
-        )
+    def __init__(self, access_token: str = None):
+        super().__init__()
+        self.access_token = access_token if access_token is not None else os.environ["access_token"]
 
 
 class HTTPException(Exception):
