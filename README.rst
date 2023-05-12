@@ -43,9 +43,9 @@ Overview
     :alt: Supported implementations
     :target: https://pypi.org/project/sleepme
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/veleek/py-sleepme/v0.0.6.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/veleek/py-sleepme/v0.0.7.svg
     :alt: Commits since latest release
-    :target: https://github.com/veleek/py-sleepme/compare/v0.0.6...main
+    :target: https://github.com/veleek/py-sleepme/compare/v0.0.7...main
 
 .. end-badges
 
