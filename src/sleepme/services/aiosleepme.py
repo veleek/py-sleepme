@@ -30,7 +30,9 @@ async def get_device_state(device_id: str, api_config_override: Optional[Sleepme
     return DeviceState(**response.json()) if response.json() is not None else DeviceState()
 
 
-async def update_device(device_id: str, body: DeviceControl, api_config_override: Optional[SleepmeConfig] = None) -> UpdateResponse:
+async def update_device(
+    device_id: str, body: DeviceControl, api_config_override: Optional[SleepmeConfig] = None
+) -> UpdateResponse:
     body_dict = body.dict(exclude_unset=True, exclude_none=True)
 
     async with get_client(api_config_override) as client:

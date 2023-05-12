@@ -1,4 +1,4 @@
-from . import SleepmeConfig
+from .config import SleepmeConfig
 from .services import aiosleepme
 from .models import DeviceInfo
 from .models import DeviceState

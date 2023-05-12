@@ -1,9 +1,9 @@
 from typing import List
-from sleepme.config import SleepmeConfig
+from .config import SleepmeConfig
 
-from sleepme.services import aiosleepme
-from sleepme.services import sleepme
-from sleepme.device import SleepmeDevice
+from .services import aiosleepme
+from .services import sleepme
+from .device import SleepmeDevice
 
 
 class SleepmeDeviceManager:
@@ -16,7 +16,9 @@ class SleepmeDeviceManager:
     def get_devices(self) -> List[SleepmeDevice]:
         if self.devices is None:
             deviceInfos = sleepme.get_devices(self._config)
-            self.devices = [SleepmeDevice(device, sleepme.get_device_state(device.id, self._config)) for device in deviceInfos]
+            self.devices = [
+                SleepmeDevice(device, sleepme.get_device_state(device.id, self._config)) for device in deviceInfos
+            ]
         return self.devices
 
     def get_device(self, id: str) -> SleepmeDevice:
@@ -31,7 +33,10 @@ class SleepmeDeviceManager:
     async def get_devices_async(self) -> List[SleepmeDevice]:
         if self.devices is None:
             deviceInfos = await aiosleepme.get_devices(self._config)
-            self.devices = [SleepmeDevice(device, await aiosleepme.get_device_state(device.id, self._config)) for device in deviceInfos]
+            self.devices = [
+                SleepmeDevice(device, await aiosleepme.get_device_state(device.id, self._config))
+                for device in deviceInfos
+            ]
         return self.devices
 
     async def get_device_async(self, id: str) -> SleepmeDevice:
