@@ -1,5 +1,5 @@
-from sleepme.services import aiosleepme
-
+from . import SleepmeConfig
+from .services import aiosleepme
 from .models import DeviceInfo
 from .models import DeviceState
 from .models.DeviceState import DeviceControl
@@ -11,12 +11,16 @@ class SleepmeDevice:
     A strongly typed class to represent a Sleepme device.
     """
 
-    def __init__(self, info: DeviceInfo, state: DeviceState):
+    def __init__(self, info: DeviceInfo, state: DeviceState, config: SleepmeConfig):
+        self._config = config
         self.info = info
         self.state = state
 
     async def refresh_state(self):
-        self.state = await aiosleepme.get_device_state(self.info.id)
+        self.state = await aiosleepme.get_device_state(self.info.id, self._config)
+
+    async def update_state(self, update: DeviceControl):
+        await aiosleepme.update_device(self.info.id, update, self._config)
 
     def get_temperature(self) -> float:
         if self.state.control.display_temperature_unit == TemperatureUnit.Celsius:
@@ -30,10 +34,9 @@ class SleepmeDevice:
             update.set_temperature_c = temperature
         else:
             update.set_temperature_f = int(temperature)
-
-        await aiosleepme.update_device(self.info.id, update)
+        await self.update_state(update)
 
     async def set_brightness(self, brightness: int):
         update = DeviceControl()
         update.brightness_level = brightness
-        await aiosleepme.update_device(self.info.id, update)
+        await self.update_state(update)

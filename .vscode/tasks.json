@@ -40,7 +40,7 @@
         {
             "label": "clean dist",
             "type": "shell",
-            "command": "rm -recurse -force dist",
+            "command": "rm -recurse -force dist -ea Ignore; echo Clean",
             "problemMatcher": []
         },
         {
