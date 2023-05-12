@@ -19,7 +19,7 @@
         {
             "label": "bump patch",
             "type": "shell",
-            "command": "bumpversion patch",
+            "command": "bumpversion patch --allow-dirty",
         },
         {
             "label": "build",
