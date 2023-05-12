@@ -14,12 +14,10 @@ class SleepmeDeviceManager:
         self.devices: List[SleepmeDevice] = None
 
     def get_devices(self) -> List[SleepmeDevice]:
-        if SleepmeDeviceManager.devices is None:
+        if self.devices is None:
             deviceInfos = sleepme.get_devices(self._config)
-            SleepmeDeviceManager.devices = [
-                SleepmeDevice(device, sleepme.get_device_state(device.id, self._config)) for device in deviceInfos
-            ]
-        return SleepmeDeviceManager.devices
+            self.devices = [SleepmeDevice(device, sleepme.get_device_state(device.id, self._config)) for device in deviceInfos]
+        return self.devices
 
     def get_device(self, id: str) -> SleepmeDevice:
         devices = self.get_devices()
@@ -31,12 +29,10 @@ class SleepmeDeviceManager:
         return device
 
     async def get_devices_async(self) -> List[SleepmeDevice]:
-        if SleepmeDeviceManager.devices is None:
+        if self.devices is None:
             deviceInfos = await aiosleepme.get_devices(self._config)
-            SleepmeDeviceManager.devices = [
-                SleepmeDevice(device, await aiosleepme.get_device_state(device.id, self._config)) for device in deviceInfos
-            ]
-        return SleepmeDeviceManager.devices
+            self.devices = [SleepmeDevice(device, await aiosleepme.get_device_state(device.id, self._config)) for device in deviceInfos]
+        return self.devices
 
     async def get_device_async(self, id: str) -> SleepmeDevice:
         devices = await self.get_devices_async()
