@@ -13,7 +13,7 @@ def read(*names, **kwargs):
 
 setup(
     name="sleepme",
-    version="0.0.5",
+    version="0.0.6",
     license="MIT",
     description="A python library for the Sleep.me Developer API.",
     long_description="{}\n{}".format(

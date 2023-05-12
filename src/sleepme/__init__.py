@@ -1,4 +1,4 @@
-__version__ = "0.0.5"
+__version__ = "0.0.6"
 
 from .device import SleepmeDevice
 from .device_manager import SleepmeDeviceManager
