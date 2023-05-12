@@ -4,7 +4,7 @@ from typing import Union
 from pydantic import BaseModel
 
 
-class APIConfig(BaseModel):
+class SleepmeConfig(BaseModel):
     base_path: str = "https://api.developer.sleep.me/v1"
     verify: Union[bool, str] = False
     proxies: str | None = None

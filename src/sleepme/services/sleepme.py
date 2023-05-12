@@ -2,15 +2,15 @@ from typing import Optional
 
 import httpx
 
-from ..api_config import APIConfig
-from ..api_config import HTTPException
+from ..config import SleepmeConfig
+from ..config import HTTPException
 from ..models import DeviceControl
 from ..models import DeviceInfoList
 from ..models import DeviceState
 from ..models import UpdateResponse
 
 
-def get_devices(api_config_override: Optional[APIConfig] = None) -> DeviceInfoList:
+def get_devices(api_config_override: Optional[SleepmeConfig] = None) -> DeviceInfoList:
     with get_client(api_config_override) as client:
         response = client.request("get", httpx.URL("/devices"))
 
@@ -20,7 +20,7 @@ def get_devices(api_config_override: Optional[APIConfig] = None) -> DeviceInfoLi
     return DeviceInfoList.parse_obj(response.json()) if response.json() is not None else DeviceInfoList(__root__=[])
 
 
-def get_device_state(device_id: str, api_config_override: Optional[APIConfig] = None) -> DeviceState:
+def get_device_state(device_id: str, api_config_override: Optional[SleepmeConfig] = None) -> DeviceState:
     with get_client(api_config_override) as client:
         response = client.request("get", httpx.URL(f"/devices/{device_id}"))
 
@@ -30,7 +30,7 @@ def get_device_state(device_id: str, api_config_override: Optional[APIConfig] = 
     return DeviceState(**response.json()) if response.json() is not None else DeviceState()
 
 
-def update_device(device_id: str, body: DeviceControl, api_config_override: Optional[APIConfig] = None) -> UpdateResponse:
+def update_device(device_id: str, body: DeviceControl, api_config_override: Optional[SleepmeConfig] = None) -> UpdateResponse:
     body_dict = body.dict(exclude_unset=True, exclude_none=True)
 
     with get_client(api_config_override) as client:
@@ -45,8 +45,8 @@ def update_device(device_id: str, body: DeviceControl, api_config_override: Opti
     return UpdateResponse(**response.json()) if response.json() is not None else UpdateResponse()
 
 
-def get_client(api_config_override: Optional[APIConfig] = None) -> httpx.Client:
-    api_config = api_config_override if api_config_override else APIConfig()
+def get_client(api_config_override: Optional[SleepmeConfig] = None) -> httpx.Client:
+    api_config = api_config_override if api_config_override else SleepmeConfig()
 
     return httpx.Client(
         base_url=api_config.base_path,

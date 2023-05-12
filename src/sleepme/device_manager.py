@@ -1,5 +1,5 @@
 from typing import List
-from sleepme.api_config import APIConfig
+from sleepme.config import SleepmeConfig
 
 from sleepme.services import aiosleepme
 from sleepme.services import sleepme
@@ -9,7 +9,7 @@ from sleepme.device import SleepmeDevice
 class SleepmeDeviceManager:
     devices: List[SleepmeDevice]
 
-    def __init__(self, config: APIConfig):
+    def __init__(self, config: SleepmeConfig):
         self._config = config
         self.devices: List[SleepmeDevice] = None
 
